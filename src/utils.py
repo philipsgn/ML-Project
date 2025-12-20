@@ -33,7 +33,6 @@ def evaluate_models(X_train,y_train,X_test,y_test, models,param):
 
             model.set_params(**gs.best_params_)
             model.fit(X_train,y_train)
-
             # model.fit(X_train,y_train) #Train Model
 
             y_train_pred = model.predict(X_train)
@@ -43,8 +42,9 @@ def evaluate_models(X_train,y_train,X_test,y_test, models,param):
 
             test_model_score = r2_score(y_test_pred,y_test)
 
-            report[list(models.keys())[i]] = test_model_score
+            report[list(models.keys())[i]] = {
+                "model" : model , "r2_test" :test_model_score
+            }
         return report
     except Exception as e :
         raise CustomException(e,sys)
-        
