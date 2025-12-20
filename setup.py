@@ -26,6 +26,6 @@ setup(
     version='0.0.1',
     author='Philip',
     author_email='tanphat260705@gmail.com',
-    packages=find_packages(),  # Tìm thư mục có file __init__.py
+    packages=find_packages(),  # Tìm thư mục có file __init__.py , có thể import somewhere
     install_requires=get_requirements('requirements.txt')
 )
